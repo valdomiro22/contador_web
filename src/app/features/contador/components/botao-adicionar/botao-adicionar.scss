@@ -1,0 +1,21 @@
+.botao {
+    margin: auto;
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(76, 130, 247);
+    border-radius: 18px;
+}
+
+.icone {
+  color: white;
+  font-size: 100px;
+
+  width: 100px;
+  height: 100px;
+}
