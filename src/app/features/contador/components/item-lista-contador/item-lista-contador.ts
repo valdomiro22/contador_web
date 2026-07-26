@@ -1,5 +1,5 @@
 import { Component, input } from "@angular/core";
-import { Contador } from "../../contador";
+import { Contador } from "../../models/contador";
 
 @Component({
     selector: 'app-item-lista-contador',

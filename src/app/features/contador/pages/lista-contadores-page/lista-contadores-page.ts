@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ItemListaContador } from '../../components/item-lista-contador/item-lista-contador';
 import { ContadorService } from '../../contador.service';
-import { Contador } from '../../contador';
+import { Contador } from '../../models/contador';
 import { RouterLink } from '@angular/router';
 
 @Component({

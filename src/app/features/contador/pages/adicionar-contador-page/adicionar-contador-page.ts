@@ -1,7 +1,8 @@
 import { Component, inject } from "@angular/core";
 import { ReactiveFormsModule, Validators, FormBuilder } from "@angular/forms";
 import { ContadorService } from "../../contador.service";
-import { validate } from "@angular/forms/signals";
+import { Router } from "@angular/router";
+import { AppRoutePaths } from "../../../../core/routes/app-route-paths";
 
 @Component({
     selector: 'app-adicionar-contador-page',
@@ -14,6 +15,7 @@ import { validate } from "@angular/forms/signals";
 export class AdicionarContadorPage {
   private readonly formBuilder = inject(FormBuilder);
   private readonly contadorService = inject(ContadorService);
+  private readonly router = inject(Router);
 
   formulario = this.formBuilder.nonNullable.group({
     nome: ['', [
@@ -42,6 +44,20 @@ export class AdicionarContadorPage {
   })
 
   adicionar() {
-    console.log('adicionar contador')
+    if (this.formulario.invalid) {
+      this.formulario.markAllAsTouched()
+      return
+    }
+
+    const contador = this.formulario.getRawValue()
+
+    this.contadorService.adicionarContador(contador).subscribe({
+      next: () => {
+        console.log('Contador adicionado com sucesso')
+        this.formulario.reset()
+        this.router.navigate([AppRoutePaths.listaContadores]);
+      },
+      error: erro => console.log('Erro ao adicionar contador', erro)
+    })
   }
 }
