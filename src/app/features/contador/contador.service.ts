@@ -33,4 +33,8 @@ export class ContadorService {
   decrementarContador(id: string) {
     return this.http.patch<Contador>(`${this.apiUrl}/${id}/decrementar`, null)
   }
+  
+  resetContador(id: string) {
+    return this.http.patch<Contador>(`${this.apiUrl}/${id}/reset`, null)
+  }
 }

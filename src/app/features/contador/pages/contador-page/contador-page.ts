@@ -4,15 +4,18 @@ import { BotaoAdicionar } from '../../components/botao-adicionar/botao-adicionar
 import { BotaoSubtrair } from '../../components/botao-subtrair/botao-subtrair';
 import { ContadorService } from '../../contador.service';
 import { Contador } from '../../models/contador';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-contador-page',
   imports: [
     ContadorDisplay,
     BotaoAdicionar,
-    BotaoSubtrair
-  ],
+    BotaoSubtrair,
+    MatIcon,
+    RouterLink
+],
   templateUrl: './contador-page.html',
   styleUrls: ['./contador-page.scss'],
 })
@@ -64,6 +67,17 @@ export class ContadorPage implements OnInit {
     this.contadorService.decrementarContador(contadorAtual.id).subscribe({
       next: () => this.buscarContador(contadorAtual.id),
       error: erro => console.error('Erro ao decrementar contador:', erro),
+    })
+  }
+
+  resetar() {
+    const contadorAtual = this.contador()
+
+    if (!contadorAtual) return
+    
+    this.contadorService.resetContador(contadorAtual.id).subscribe({
+      next: () => this.buscarContador(contadorAtual.id),
+      error: erro => console.error('Erro ao resetar contador:', erro),
     })
   }
 }
