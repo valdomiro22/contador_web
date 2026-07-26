@@ -1,11 +1,12 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ContadorService } from '../../service/contador.service';
-import { Contador } from '../../models/contador';
 import { ItemListaContador } from '../../components/item-lista-contador/item-lista-contador';
+import { ContadorService } from '../../contador.service';
+import { Contador } from '../../contador';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista-contadores-page',
-  imports: [ItemListaContador],
+  imports: [ItemListaContador, RouterLink],
   templateUrl: './lista-contadores-page.html',
   styleUrls: ['./lista-contadores-page.scss']
 })
