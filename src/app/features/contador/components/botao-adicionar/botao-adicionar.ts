@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -7,4 +7,6 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './botao-adicionar.html',
   styleUrl: './botao-adicionar.scss',
 })
-export class BotaoAdicionar {}
+export class BotaoAdicionar {
+  readonly clicou = output()
+}

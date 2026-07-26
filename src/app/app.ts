@@ -4,7 +4,7 @@ import { ListaContadoresPage } from "./features/contador/pages/lista-contadores-
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ListaContadoresPage],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

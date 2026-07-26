@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -7,4 +7,6 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './botao-subtrair.html',
   styleUrl: './botao-subtrair.scss',
 })
-export class BotaoSubtrair {}
+export class BotaoSubtrair {
+  readonly clicou = output()
+}

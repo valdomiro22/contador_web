@@ -17,17 +17,16 @@ export class ListaContadoresPage implements OnInit {
   nome = 'nome para teste';
   nomeRecebidoDoService = this.service.nomeNoService;
 
-  readonly contadores = signal<Contador[]>([]);
+  readonly contadores = signal<Contador[]>([])
 
-  ngOnInit(): void {
-    this.service.buscarContador().subscribe({
+  ngOnInit() {
+    this.service.buscarListaContadores().subscribe({
       next: contadoresRecebidos => {
-        console.log(contadoresRecebidos);
         this.contadores.set(contadoresRecebidos);
       },
       error: erro => {
         console.error('Erro ao buscar contadores:', erro);
       }
-    });
+    })
   }
 }

@@ -6,8 +6,13 @@
   </div>
 
   @for (contador of contadores(); track contador.id) {
-    <app-item-lista-contador
-      [contador]="contador"
-    />
+    <a
+      class="item-contador"
+      [routerLink]="['/contador/contador-page/', contador.id]"
+    >
+      <app-item-lista-contador
+        [contador]="contador"
+      />
+    </a>
   }
 </div>

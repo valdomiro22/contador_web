@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, input } from "@angular/core";
+import { Contador } from "../../models/contador";
 
 @Component({
     selector: 'app-contador-display',
@@ -7,5 +8,5 @@ import { Component } from "@angular/core";
     styleUrls: ['./contador-display.scss']
 })
 export class ContadorDisplay {
-
+    readonly contador = input.required<Contador>()
 }

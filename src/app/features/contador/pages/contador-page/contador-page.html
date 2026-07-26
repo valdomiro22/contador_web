@@ -1,3 +1,7 @@
-<app-contador-display></app-contador-display>
-<app-botao-adicionar></app-botao-adicionar>
-<app-botao-subtrair></app-botao-subtrair>
+@if (contador(); as contadorAtual) {
+  <app-contador-display [contador]="contadorAtual" />
+}
+
+<app-botao-adicionar (clicou)="incrementar()"/>
+
+<app-botao-subtrair (clicou)="decrementar()"/>
