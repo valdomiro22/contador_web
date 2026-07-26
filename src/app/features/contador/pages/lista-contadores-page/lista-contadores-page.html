@@ -1,0 +1,11 @@
+<div id="content">
+  <div id="adicionar">
+    Adicionar Contador
+  </div>
+
+  @for (contador of contadores(); track contador.id) {
+    <app-item-lista-contador
+      [contador]="contador"
+    />
+  }
+</div>

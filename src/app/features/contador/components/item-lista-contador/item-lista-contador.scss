@@ -1,0 +1,40 @@
+#contador {
+    background-color: var(--color-primary);
+    width: 500px;
+    margin: auto;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+#cabecalho {
+    color: var(--color-on-primary);
+    font-size: 18px;
+    margin-bottom: 16px;
+    // font-weight: bold;
+    margin-top: 8px;
+}
+
+#detalhes {
+    display: flex;
+    color: var(--color-text-gray);
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+#qt-atual {
+    color: var(--color-yellow-project);
+    font-size: 24px;
+    padding: 4px;
+}
+
+#vl-meta {
+    font-size: 24px;
+    padding: 4px;
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid rgb(62, 94, 72);
+}
