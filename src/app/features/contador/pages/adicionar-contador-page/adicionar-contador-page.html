@@ -1,1 +1,106 @@
-<p>Adicionar page</p>
+<div id="container">
+  <form
+    [formGroup]="formulario"
+    (ngSubmit)="adicionar()"
+  >
+    <h2>Adicionar contador</h2>
+
+    <div class="campo">
+      <label for="nome">Nome</label>
+
+      <input
+        type="text"
+        id="nome"
+        formControlName="nome"
+      >
+
+      @if (
+        formulario.controls.nome.touched &&
+        formulario.controls.nome.hasError('required')
+      ) {
+        <span class="erro">Digite o nome</span>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="valorAtual">Valor atual</label>
+
+      <input
+        type="number"
+        id="valorAtual"
+        formControlName="valorAtual"
+      >
+    </div>
+
+    <div class="campo">
+      <label for="incremento">Incremento</label>
+
+      <input
+        type="number"
+        id="incremento"
+        formControlName="incremento"
+      >
+
+      @if (
+        formulario.controls.incremento.touched &&
+        formulario.controls.incremento.hasError('required')
+      ) {
+        <span class="erro">Digite o incremento</span>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="decremento">Decremento</label>
+
+      <input
+        type="number"
+        id="decremento"
+        formControlName="decremento"
+      >
+    </div>
+
+    <div class="campo">
+      <label for="valorInicial">Valor inicial</label>
+
+      <input
+        type="number"
+        id="valorInicial"
+        formControlName="valorInicial"
+      >
+    </div>
+
+    <div class="campo">
+      <label for="valorMinimo">Valor mínimo</label>
+
+      <input
+        type="number"
+        id="valorMinimo"
+        formControlName="valorMinimo"
+      >
+    </div>
+
+    <div class="campo">
+      <label for="valorMaximo">Valor máximo</label>
+
+      <input
+        type="number"
+        id="valorMaximo"
+        formControlName="valorMaximo"
+      >
+    </div>
+
+    <div class="campo">
+      <label for="meta">Meta</label>
+
+      <input
+        type="number"
+        id="meta"
+        formControlName="meta"
+      >
+    </div>
+
+    <button type="submit">
+      Adicionar contador
+    </button>
+  </form>
+</div>

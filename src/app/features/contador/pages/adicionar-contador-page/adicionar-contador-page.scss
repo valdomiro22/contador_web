@@ -1,0 +1,123 @@
+#container {
+  // Permite usar propriedades do Flexbox.
+  display: flex;
+
+  // Centraliza o formulário horizontalmente.
+  justify-content: center;
+
+  // Adiciona espaço entre o formulário e as bordas da página.
+  padding: 24px;
+}
+
+form {
+  // Faz os elementos internos ficarem um abaixo do outro.
+  display: flex;
+  flex-direction: column;
+
+  // Define a largura do formulário.
+  width: 500px;
+
+  // Adiciona espaço interno entre o conteúdo e as bordas.
+  padding: 24px;
+
+  // Define uma cor de fundo branca.
+  background-color: white;
+
+  // Arredonda os cantos do formulário.
+  border-radius: 8px;
+
+  // Cria uma sombra leve ao redor do formulário.
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  // Remove a margem superior padrão do título.
+  margin-top: 0;
+
+  // Adiciona espaço abaixo do título.
+  margin-bottom: 20px;
+
+  // Centraliza o texto.
+  text-align: center;
+}
+
+.campo {
+  // Faz label, input e mensagem ficarem um abaixo do outro.
+  display: flex;
+  flex-direction: column;
+
+  // Adiciona espaço abaixo de cada conjunto de campo.
+  margin-bottom: 16px;
+}
+
+label {
+  // Adiciona espaço entre o texto da label e o input.
+  margin-bottom: 6px;
+
+  // Deixa o texto da label um pouco mais destacado.
+  font-weight: 600;
+}
+
+input {
+  // Adiciona espaço dentro do campo.
+  padding: 8px;
+
+  // Define uma borda cinza clara.
+  border: 1px solid #bdbdbd;
+
+  // Arredonda levemente os cantos.
+  border-radius: 4px;
+
+  // Define o tamanho do texto digitado.
+  font-size: 16px;
+
+  // Remove a borda azul ou preta padrão aplicada pelo navegador.
+  outline: none;
+}
+
+input:focus {
+  // Altera a cor da borda quando o usuário seleciona o campo.
+  border-color: #1976d2;
+}
+
+.erro {
+  // Define a cor da mensagem de erro.
+  color: #d32f2f;
+
+  // Deixa a mensagem menor que o texto normal.
+  font-size: 13px;
+
+  // Adiciona um pequeno espaço acima da mensagem.
+  margin-top: 4px;
+}
+
+button {
+  // Adiciona espaço dentro do botão.
+  padding: 10px;
+
+  // Remove a borda padrão do botão.
+  border: none;
+
+  // Arredonda os cantos.
+  border-radius: 4px;
+
+  // Define a cor de fundo.
+  background-color: #1976d2;
+
+  // Define a cor do texto.
+  color: white;
+
+  // Aumenta o tamanho do texto.
+  font-size: 16px;
+
+  // Deixa o texto um pouco mais forte.
+  font-weight: 600;
+
+  // Mostra a mãozinha ao passar o mouse.
+  cursor: pointer;
+}
+
+button:hover {
+  // Escurece o botão quando o mouse passa por cima.
+  background-color: #125ca1;
+}
