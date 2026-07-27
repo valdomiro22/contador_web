@@ -1,0 +1,32 @@
+#container {
+  margin: auto;
+  width: 500px;
+  padding-bottom: 20px;
+}
+
+.titulo {
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+
+.bloco {
+  border: var(--color-bright-teal) solid 1px;
+  border-radius: 12px;
+}
+
+.deletar {
+  background-color: #da0404;
+  color: var(--color-on-error);
+  border-radius: 12px;
+  margin-top: 16px;
+  padding: 16px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--color-bright-teal);
+}

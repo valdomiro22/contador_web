@@ -1,0 +1,20 @@
+<div class="item">
+  <mat-icon class="icone1">{{ icone1() }}</mat-icon>
+  <div class="conteudo-descricao">
+    <p class="descricao">{{ descricao() }}</p>
+    <p class="valor">{{ valor() }}</p>
+  </div>
+
+  <div class="icone-botao">
+    @if (botao()) {
+      <p><mat-slide-toggle
+        class="cor-verde"
+        labelPosition="before"
+        hideIcon
+      ></mat-slide-toggle></p>
+    } @else {
+       <mat-icon class="icone2">{{ icone2() }}</mat-icon>
+    }
+  </div>
+</div>
+

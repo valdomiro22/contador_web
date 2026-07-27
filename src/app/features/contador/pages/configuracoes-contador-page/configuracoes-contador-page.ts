@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { ItemConfiguracao } from '../../components/item-configuracao/item-configuracao';
 
 @Component({
   selector: 'app-configuracoes-contador-page',
-  imports: [],
+  imports: [ItemConfiguracao],
   templateUrl: './configuracoes-contador-page.html',
   styleUrl: './configuracoes-contador-page.scss',
 })

@@ -1,0 +1,30 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  //justify-content: space-between;
+  padding: 16px;
+}
+
+.conteudo-descricao {
+  margin-left: 16px;
+}
+
+.icone-botao {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.cor-verde {
+  --mat-slide-toggle-selected-track-color: var(--color-bright-teal);
+  --mat-slide-toggle-selected-handle-color: white;
+
+  --mat-slide-toggle-selected-hover-track-color: var(--color-bright-teal);
+  --mat-slide-toggle-selected-hover-handle-color: white;
+
+  --mat-slide-toggle-selected-focus-track-color: var(--color-bright-teal);
+  --mat-slide-toggle-selected-focus-handle-color: white;
+
+  --mat-slide-toggle-selected-pressed-track-color: var(--color-bright-teal);
+  --mat-slide-toggle-selected-pressed-handle-color: white;
+}
