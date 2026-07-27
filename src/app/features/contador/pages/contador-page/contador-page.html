@@ -1,19 +1,29 @@
 @if (contador(); as contadorAtual) {
-  <app-contador-display [contador]="contadorAtual" />
-  
-  <app-botao-adicionar (clicou)="incrementar()"/>
-  
-  <app-botao-subtrair (clicou)="decrementar()"/>
-  
-  <div class="acoes">
-    <mat-icon 
-    id="reset"
-    (click)="resetar()"
-  >refresh</mat-icon>
 
-<mat-icon 
-    id="editar"
-    [routerLink]="['/contador/editar/', contadorAtual.id]"
-  >edit</mat-icon>
-</div>
+  <div id="conteudo">
+    <div id="contador">
+      <app-contador-display [contador]="contadorAtual" />
+
+      <app-botao-adicionar (clicou)="incrementar()" />
+
+      <app-botao-subtrair (clicou)="decrementar()" />
+
+      <div class="acoes">
+        <mat-icon
+          id="reset"
+          (click)="resetar()"
+        >refresh
+        </mat-icon>
+
+        <mat-icon
+          id="editar"
+          [routerLink]="['/contador/editar/', contadorAtual.id]"
+        >edit
+        </mat-icon>
+      </div>
+    </div>
+
+    <app-menu-opcoes id="menu"></app-menu-opcoes>
+
+  </div>
 }

@@ -6,6 +6,7 @@ export class AppRoutePaths {
   static readonly adicionarContador = 'adicionar';
   static readonly visualizarContador = 'visualizar';
   static readonly editarContador = 'editar/:id';
-  static readonly configuracoesContador = 'configuracoes/:id';
-  static readonly detalhesContador = 'detalhes/:id';
+  static readonly configuracoesContador = 'configuracoes';
+  static readonly detalhesContador = 'detalhes';
+  static readonly historico = 'historico';
 }

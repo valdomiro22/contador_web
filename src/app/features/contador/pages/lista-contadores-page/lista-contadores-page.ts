@@ -3,30 +3,27 @@ import { ItemListaContador } from '../../components/item-lista-contador/item-lis
 import { ContadorService } from '../../contador.service';
 import { Contador } from '../../models/contador';
 import { RouterLink } from '@angular/router';
+import { MenuOpcoes } from '../../components/menu-opcoes/menu-opcoes';
 
 @Component({
   selector: 'app-lista-contadores-page',
-  imports: [ItemListaContador, RouterLink],
+  imports: [ItemListaContador, RouterLink, MenuOpcoes],
   templateUrl: './lista-contadores-page.html',
-  styleUrls: ['./lista-contadores-page.scss']
+  styleUrls: ['./lista-contadores-page.scss'],
 })
 export class ListaContadoresPage implements OnInit {
-
   private readonly service = inject(ContadorService);
 
-  nome = 'nome para teste';
-  nomeRecebidoDoService = this.service.nomeNoService;
-
-  readonly contadores = signal<Contador[]>([])
+  readonly contadores = signal<Contador[]>([]);
 
   ngOnInit() {
     this.service.buscarListaContadores().subscribe({
-      next: contadoresRecebidos => {
+      next: (contadoresRecebidos) => {
         this.contadores.set(contadoresRecebidos);
       },
-      error: erro => {
+      error: (erro) => {
         console.error('Erro ao buscar contadores:', erro);
-      }
-    })
+      },
+    });
   }
 }

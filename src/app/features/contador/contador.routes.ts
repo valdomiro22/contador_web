@@ -38,4 +38,10 @@ export const CONTADOR_ROUTES: Routes = [
       import('./pages/detalhes-contador-page/detalhes-contador-page')
         .then(component => component.DetalhesContadorPage),
   },
+  {
+    path: AppRoutePaths.historico,
+    loadComponent: () =>
+      import('./pages/historico-movimentacoes/historico-movimentacoes')
+        .then(component => component.HistoricoMovimentacoes),
+  },
 ]

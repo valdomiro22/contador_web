@@ -11,3 +11,19 @@
   width: 40px;
   height: 40px;
 }
+
+.acoes {
+  display: flex;
+  margin: 24px auto auto;
+  width: 500px;
+  justify-content: space-between;
+}
+
+#conteudo {
+  display: flex;
+  flex-direction: row;
+}
+
+#menu {
+  margin: auto 50px;
+}

@@ -1,16 +1,15 @@
 #content {
-    margin: auto;
-    margin-top: 24px;
-    align-items: center;
-    justify-items: center;
+  margin: 24px auto auto;
+  align-items: center;
+  justify-items: center;
 }
 
 #adicionar {
-    background-color: var(--color-yellow-project);
-    padding: 16px 24px;
-    border-radius: 8px;
-    font-size: 18px;
-    color: white;
+  background-color: var(--color-yellow-project);
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 18px;
+  color: white;
 }
 
 .item-contador {
@@ -18,4 +17,8 @@
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
 }
