@@ -1,0 +1,64 @@
+.conteudo {
+  width: 500px;
+  padding: 8px;
+  margin: auto;
+}
+
+.titulo {
+  margin: 16px 0;
+  font-weight: bold;
+}
+
+.card-principal {
+  background-color: rgb(193, 212, 200);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.card-principal #titulo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-primary-container);
+}
+
+.card-principal #valor {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--color-primary-container);
+  margin-top: 32px;
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  gap: 16px;
+}
+.incremento-decremento {
+  border: 1px solid var(--color-bright-teal);
+  color: var(--color-primary);
+  border-radius: 8px;
+  margin-top: 24px;
+  padding: 12px;
+}
+
+.item {
+  display: flex;
+  justify-content: row;
+  padding: 6px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--color-bright-teal);
+}
+
+#descricao {
+  margin-left: 16px;
+}
+
+#valor {
+  margin-left: auto;
+  font-weight: bold;
+}
