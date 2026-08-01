@@ -32,7 +32,7 @@ export class ContadorPage implements OnInit {
   }
 
   private buscarContador(id: string): void {
-    this.contadorService.buscarContador(id).subscribe({
+    this.contadorService.findById(id).subscribe({
       next: (contadorRecebido) => {
         this.contador.set(contadorRecebido);
       },

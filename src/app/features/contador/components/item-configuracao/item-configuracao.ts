@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 
@@ -14,4 +14,9 @@ export class ItemConfiguracao {
   readonly valor = input.required<string>();
   readonly icone2 = input.required<string>();
   readonly botao = input.required<boolean>();
+  readonly clicouIcone2 = output<void>();
+
+  aoClicarIcone2(): void {
+    this.clicouIcone2.emit();
+  }
 }

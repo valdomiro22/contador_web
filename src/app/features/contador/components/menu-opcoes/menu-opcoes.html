@@ -1,14 +1,16 @@
-<ul class="menu">
-  <li>
-<!--    <a [routerLink]="['historico']">Historico</a>-->
-    <a [routerLink]="['/contador/historico']">
-      Historico
-    </a>
-  </li>
-  <li>
-    <a [routerLink]="['/contador/configuracoes']">Configurações</a>
-  </li>
-  <li>
-    <a [routerLink]="['/contador/detalhes']">Detalhes</a>
-  </li>
-</ul>
+@if (contador(); as contadorAtual) {
+  <ul class="menu">
+    <li>
+      <a [routerLink]="['/contador', contadorAtual.id, 'historico']">
+        Historico
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/contador', contadorAtual.id, 'configuracoes']">Configurações</a>
+    </li>
+    <li>
+      <a [routerLink]="['/contador', contadorAtual.id, 'detalhes']">Detalhes</a>
+    </li>
+  </ul>
+}
+

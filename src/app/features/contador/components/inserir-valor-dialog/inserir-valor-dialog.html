@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>
+  {{ data.titulo }}
+</h2>
+
+<mat-dialog-content>
+  <mat-form-field
+    class="edit"
+    appearance="outline"
+  >
+    <mat-label>Valor</mat-label>
+
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="valor"
+    />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    type="button"
+    (click)="cancelar()"
+  >
+    Cancelar
+  </button>
+
+  <button
+    mat-flat-button
+    type="button"
+    (click)="salvar()"
+  >
+    Salvar
+  </button>
+</mat-dialog-actions>

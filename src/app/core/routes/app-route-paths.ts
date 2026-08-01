@@ -1,12 +1,14 @@
 export class AppRoutePaths {
   private constructor() {}
 
+  static readonly contador = 'contador';
+
   static readonly listaContadores = '';
-  static readonly contadorPage = 'contador-page/:id';
   static readonly adicionarContador = 'adicionar';
-  static readonly visualizarContador = 'visualizar';
-  static readonly editarContador = 'editar/:id';
-  static readonly configuracoesContador = 'configuracoes';
-  static readonly detalhesContador = 'detalhes';
-  static readonly historico = 'historico';
+
+  static readonly contadorPage = ':id';
+  static readonly editarContador = ':id/editar';
+  static readonly configuracoesContador = ':id/configuracoes';
+  static readonly detalhesContador = ':id/detalhes';
+  static readonly historicoContador = ':id/historico';
 }

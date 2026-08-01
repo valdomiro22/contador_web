@@ -2,52 +2,82 @@
 
   <h3 class="titulo">Valores e limites</h3>
   <div class="bloco">
-    <app-item-configuracao
-      icone1="play_arrow"
-      descricao="Incremento padrão"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="false"
-    ></app-item-configuracao>
+    @if (contador(); as contadorAtual) {
+      <app-item-configuracao
+        icone1="edit"
+        descricao="Nome"
+        [valor]="contadorAtual.nome"
+        icone2="arrow_forward_ios"
+        [botao]="false"
+        (clicouIcone2)="abrirDialogMeta(
+      'nome',
+      'Alterar nome',
+      contadorAtual.nome
+    )"
+      />
+    } @else {
+      <p>Carregando...</p>
+    }
 
     <hr>
 
     <app-item-configuracao
       icone1="radio_button_unchecked"
-      descricao="Incremento padrão"
+      descricao="Valor Atual"
       valor="+1"
       icone2="arrow_forward_ios"
       [botao]="false"
+      (clicouIcone2)="abrirDialogMeta(
+        'valor-atual',
+        'Alterar valor atual',
+        contador()?.valorAtual ?? ''
+      )"
     ></app-item-configuracao>
 
     <hr>
 
     <app-item-configuracao
       icone1="vertical_align_bottom"
-      descricao="Incremento padrão"
+      descricao="Valor mínimo"
       valor="+1"
       icone2="arrow_forward_ios"
       [botao]="false"
+      (clicouIcone2)="abrirDialogMeta(
+        'valor-minimo',
+        'Alterar valor mínimo',
+        30
+      )"
     ></app-item-configuracao>
 
     <hr>
 
+
     <app-item-configuracao
-      icone1="vertical_align_top"
-      descricao="Incremento padrão"
+      icone1="vertical_align_bottom"
+      descricao="Valor maximo"
       valor="+1"
       icone2="arrow_forward_ios"
       [botao]="false"
+      (clicouIcone2)="abrirDialogMeta(
+        'valor-maximo',
+        'Alterar valor maximo',
+        30
+      )"
     ></app-item-configuracao>
 
     <hr>
 
     <app-item-configuracao
       icone1="flag"
-      descricao="Incremento padrão"
+      descricao="Meta"
       valor="+1"
       icone2="arrow_forward_ios"
       [botao]="false"
+      (clicouIcone2)="abrirDialogMeta(
+        'meta',
+        'Alterar Meta',
+        30
+      )"
     ></app-item-configuracao>
   </div>
 
@@ -59,6 +89,11 @@
       valor="+1"
       icone2="arrow_forward_ios"
       [botao]="false"
+      (clicouIcone2)="abrirDialogMeta(
+        'incremento',
+        'Alterar Incremento',
+        30
+      )"
     ></app-item-configuracao>
 
     <hr>
@@ -69,6 +104,11 @@
       valor="+1"
       icone2="arrow_forward_ios"
       [botao]="false"
+      (clicouIcone2)="abrirDialogMeta(
+        'incremento',
+        'Alterar Incremento',
+        30
+      )"
     ></app-item-configuracao>
 
     <hr>

@@ -1,15 +1,19 @@
 import { Routes } from '@angular/router';
+import { AppRoutePaths } from './core/routes/app-route-paths';
 
 export const routes: Routes = [
   {
-    path: 'contador',
+    path: AppRoutePaths.contador,
     loadChildren: () =>
-      import('./features/contador/contador.routes')
-        .then(arquivoDeRotas => arquivoDeRotas.CONTADOR_ROUTES),
+      import('./features/contador/contador.routes').then((m) => m.CONTADOR_ROUTES),
   },
   {
     path: '',
-    redirectTo: 'contador',
+    redirectTo: AppRoutePaths.contador,
     pathMatch: 'full',
-  }
+  },
+  {
+    path: '**',
+    redirectTo: AppRoutePaths.contador,
+  },
 ];

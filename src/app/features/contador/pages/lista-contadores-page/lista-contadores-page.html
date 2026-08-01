@@ -1,14 +1,14 @@
 <div id="content">
   <div id="adicionar">
     <a
-      routerLink="/contador/adicionar"
+      [routerLink]="['/contador', 'adicionar']"
     >Adicionar Contador</a>
   </div>
 
   @for (contador of contadores(); track contador.id) {
     <a
       class="item-contador"
-      [routerLink]="['/contador/contador-page/', contador.id]"
+      [routerLink]="['/contador', contador.id]"
     >
       <app-item-lista-contador
         [contador]="contador"

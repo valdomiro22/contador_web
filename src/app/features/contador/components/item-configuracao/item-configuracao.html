@@ -13,7 +13,10 @@
         hideIcon
       ></mat-slide-toggle></p>
     } @else {
-       <mat-icon class="icone2">{{ icone2() }}</mat-icon>
+       <mat-icon
+         (click)="aoClicarIcone2()"
+         class="icone2"
+       >{{ icone2() }}</mat-icon>
     }
   </div>
 </div>
