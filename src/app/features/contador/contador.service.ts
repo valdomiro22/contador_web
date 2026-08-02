@@ -11,7 +11,7 @@ import { PatchContadorRequest } from './models/PatchContadorRequest';
 export class ContadorService {
   private readonly apiUrl = 'http://localhost:8080/contador';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   buscarListaContadores(): Observable<Contador[]> {
     return this.http.get<Contador[]>(this.apiUrl);
@@ -39,5 +39,9 @@ export class ContadorService {
 
   atualizacaoParcial(id: string, request: PatchContadorRequest): Observable<void> {
     return this.http.patch<void>(`${this.apiUrl}/${id}`, request);
+  }
+
+  deletarContador(id: string) {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

@@ -1,10 +1,11 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InserirValorDialog } from '../../components/inserir-valor-dialog/inserir-valor-dialog';
 import { ItemConfiguracao } from '../../components/item-configuracao/item-configuracao';
 import { ContadorService } from '../../contador.service';
 import { Contador } from '../../models/contador';
+import { AppRoutePaths } from '../../../../core/routes/app-route-paths';
 
 @Component({
   selector: 'app-configuracoes-contador-page',
@@ -16,6 +17,7 @@ export class ConfiguracoesContadorPage implements OnInit {
   private readonly dialog = inject(MatDialog);
   private readonly contadorService = inject(ContadorService);
   private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
   readonly contador = signal<Contador | null>(null);
 
@@ -313,6 +315,25 @@ export class ConfiguracoesContadorPage implements OnInit {
       error: (erro) => {
         console.error('Erro ao atualizar mostrar efeito ao clicar:', erro);
       },
+    });
+  }
+
+  deletar(): void {
+    const id = this.contador()?.id;
+
+    if (!id) return;
+
+    this.contadorService.deletarContador(id).subscribe({
+      next: () => {
+        this.console.log('Contador deletado');
+
+        void this.router.navigateByUrl('/contador', {
+          replaceUrl: true,
+        });
+      },
+      error: (erro) => {
+        console.error('Erro ao deletar contador:', erro);
+      }
     });
   }
 
