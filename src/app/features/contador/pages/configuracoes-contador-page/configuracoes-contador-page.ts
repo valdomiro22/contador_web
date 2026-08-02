@@ -5,7 +5,7 @@ import { InserirValorDialog } from '../../components/inserir-valor-dialog/inseri
 import { ItemConfiguracao } from '../../components/item-configuracao/item-configuracao';
 import { ContadorService } from '../../contador.service';
 import { Contador } from '../../models/contador';
-import { AppRoutePaths } from '../../../../core/routes/app-route-paths';
+import { AlertaDialog } from '../../components/alerta-dialog/alerta-dialog';
 
 @Component({
   selector: 'app-configuracoes-contador-page',
@@ -43,6 +43,16 @@ export class ConfiguracoesContadorPage implements OnInit {
       error: (erro) => {
         console.error('Erro ao buscar contador:', erro);
       },
+    });
+  }
+
+  abrirAlerta(): void {
+    const dialogRef = this.dialog.open(AlertaDialog);
+
+    dialogRef.afterClosed().subscribe((confirmou) => {
+      if (confirmou) {
+        this.deletar();
+      }
     });
   }
 
@@ -163,9 +173,7 @@ export class ConfiguracoesContadorPage implements OnInit {
 
     this.contadorService.atualizacaoParcial(id, { meta: meta }).subscribe({
       next: () => {
-        this.contador.update((contador) =>
-          contador ? { ...contador, meta: meta } : null,
-        );
+        this.contador.update((contador) => (contador ? { ...contador, meta: meta } : null));
         console.log('Atualizado: meta');
       },
       error: (erro) => {
@@ -333,7 +341,7 @@ export class ConfiguracoesContadorPage implements OnInit {
       },
       error: (erro) => {
         console.error('Erro ao deletar contador:', erro);
-      }
+      },
     });
   }
 

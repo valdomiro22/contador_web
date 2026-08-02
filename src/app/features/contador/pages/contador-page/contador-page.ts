@@ -7,6 +7,8 @@ import { Contador } from '../../models/contador';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MenuOpcoes } from '../../components/menu-opcoes/menu-opcoes';
+import { MatDialog } from '@angular/material/dialog';
+import { AlertaDialog } from '../../components/alerta-dialog/alerta-dialog';
 
 @Component({
   selector: 'app-contador-page',
@@ -17,7 +19,7 @@ import { MenuOpcoes } from '../../components/menu-opcoes/menu-opcoes';
 export class ContadorPage implements OnInit {
   private readonly contadorService = inject(ContadorService);
   private readonly route = inject(ActivatedRoute);
-
+  private readonly dialog = inject(MatDialog);
   readonly contador = signal<Contador | null>(null);
 
   ngOnInit(): void {
@@ -29,6 +31,16 @@ export class ContadorPage implements OnInit {
     }
 
     this.buscarContador(id);
+  }
+
+  abrirAlerta(): void {
+    const dialogRef = this.dialog.open(AlertaDialog);
+
+    dialogRef.afterClosed().subscribe((confirmou) => {
+      if (confirmou) {
+        this.resetar();
+      }
+    });
   }
 
   private buscarContador(id: string): void {

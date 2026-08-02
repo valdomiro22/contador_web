@@ -1,0 +1,30 @@
+<div class="container">
+  <h2 mat-dialog-title class="titulo">
+    <mat-icon
+      class="icone2"
+    >notifications</mat-icon>
+    Alerta
+  </h2>
+
+  <mat-dialog-content>
+    <p>Esta ação não poderá ser revertida. Voce realmente deseja proceguir com esta ação?</p>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button
+      mat-flat-button
+      type="button"
+      (click)="cancelar()"
+    >
+      Cancelar
+    </button>
+
+    <button
+      mat-button
+      type="button"
+      (click)="confirmar()"
+    >
+      Confirmar
+    </button>
+  </mat-dialog-actions>
+</div>
