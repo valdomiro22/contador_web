@@ -3,6 +3,26 @@
     <div id="contador">
       <app-contador-display [contador]="contadorAtual" />
 
+      @if (contadorAtual.mostrarLimites) {
+        <div class="limites">
+          <app-limite
+            [nome]="'Minimo'"
+            [valor]="contadorAtual.valorMinimo ?? 'Indefinido'"
+          />
+          
+          <app-limite
+            [nome]="'Meta'"
+            [valor]="contadorAtual.meta ?? 'Indefinido'"
+          />
+
+          <app-limite
+            [nome]="'Maximo'"
+            [valor]="contadorAtual.valorMaximo ?? 'Indefinido'"
+          />
+        </div>
+      }
+
+
       <app-botao-adicionar (clicou)="incrementar()" />
 
       <app-botao-subtrair (clicou)="decrementar()" />

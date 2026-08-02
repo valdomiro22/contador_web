@@ -9,10 +9,11 @@ import { MatIcon } from '@angular/material/icon';
 import { MenuOpcoes } from '../../components/menu-opcoes/menu-opcoes';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertaDialog } from '../../components/alerta-dialog/alerta-dialog';
+import { Limite } from "../../components/limite/limite";
 
 @Component({
   selector: 'app-contador-page',
-  imports: [ContadorDisplay, BotaoAdicionar, BotaoSubtrair, MatIcon, RouterLink, MenuOpcoes],
+  imports: [ContadorDisplay, BotaoAdicionar, BotaoSubtrair, MatIcon, RouterLink, MenuOpcoes, Limite],
   templateUrl: './contador-page.html',
   styleUrls: ['./contador-page.scss'],
 })

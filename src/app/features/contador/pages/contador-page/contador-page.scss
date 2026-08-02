@@ -51,3 +51,10 @@
     max-width: 100%;
   }
 }
+
+.limites {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 8px;
+}
