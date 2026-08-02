@@ -1,9 +1,9 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Contador } from "./models/contador";
-import { PostContadorRequest } from "./models/PostContadorRequest ";
-import { PutContadorRequest } from './models/PutContadorRequest ';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Contador } from './models/contador';
+import { PostContadorRequest } from './models/PostContadorRequest ';
+import { PatchContadorRequest } from './models/PatchContadorRequest';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +37,7 @@ export class ContadorService {
     return this.http.patch<Contador>(`${this.apiUrl}/${id}/reset`, null);
   }
 
-  atualizarContador(id: string, contador: PutContadorRequest) {
-    return this.http.put<Contador>(this.apiUrl, contador);
+  atualizacaoParcial(id: string, request: PatchContadorRequest): Observable<void> {
+    return this.http.patch<void>(`${this.apiUrl}/${id}`, request);
   }
 }

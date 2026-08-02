@@ -7,11 +7,11 @@
     class="edit"
     appearance="outline"
   >
-    <mat-label>Valor</mat-label>
+    <mat-label>{{ label }}</mat-label>
 
     <input
       matInput
-      type="number"
+      [type]="tipoInput"
       [(ngModel)]="valor"
     />
   </mat-form-field>

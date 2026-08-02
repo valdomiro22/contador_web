@@ -1,181 +1,183 @@
 <div id="container">
+  @if (contador(); as contadorAtual) {
 
-  <h3 class="titulo">Valores e limites</h3>
-  <div class="bloco">
-    @if (contador(); as contadorAtual) {
+    <h3 class="titulo">Valores e limites</h3>
+    <div class="bloco">
+
       <app-item-configuracao
         icone1="edit"
         descricao="Nome"
-        [valor]="contadorAtual.nome"
         icone2="arrow_forward_ios"
+        [valor]="contadorAtual.nome"
         [botao]="false"
         (clicouIcone2)="abrirDialogMeta(
-      'nome',
-      'Alterar nome',
-      contadorAtual.nome
-    )"
+          'nome',
+          'Alterar nome',
+          contadorAtual.nome
+        )"
       />
-    } @else {
-      <p>Carregando...</p>
-    }
 
-    <hr>
+      <hr>
 
-    <app-item-configuracao
-      icone1="radio_button_unchecked"
-      descricao="Valor Atual"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="false"
-      (clicouIcone2)="abrirDialogMeta(
-        'valor-atual',
-        'Alterar valor atual',
-        contador()?.valorAtual ?? ''
-      )"
-    ></app-item-configuracao>
+      <app-item-configuracao
+        icone1="radio_button_unchecked"
+        descricao="Valor Atual"
+        icone2="arrow_forward_ios"
+        [valor]="contadorAtual.valorAtual"
+        [botao]="false"
+        (clicouIcone2)="abrirDialogMeta(
+          'valor-atual',
+          'Alterar valor atual',
+          contadorAtual.valorAtual
+        )"
+      />
 
-    <hr>
+      <hr>
 
-    <app-item-configuracao
-      icone1="vertical_align_bottom"
-      descricao="Valor mínimo"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="false"
-      (clicouIcone2)="abrirDialogMeta(
+      <app-item-configuracao
+        icone1="vertical_align_bottom"
+        descricao="Valor mínimo"
+        icone2="arrow_forward_ios"
+        [valor]="contadorAtual.valorMinimo"
+        [botao]="false"
+        (clicouIcone2)="abrirDialogMeta(
         'valor-minimo',
         'Alterar valor mínimo',
-        30
+        contadorAtual.valorMinimo
       )"
-    ></app-item-configuracao>
+      />
 
-    <hr>
+      <hr>
 
 
-    <app-item-configuracao
-      icone1="vertical_align_bottom"
-      descricao="Valor maximo"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="false"
-      (clicouIcone2)="abrirDialogMeta(
+      <app-item-configuracao
+        icone1="vertical_align_top"
+        descricao="Valor maximo"
+        icone2="arrow_forward_ios"
+        [valor]="contadorAtual.valorMaximo"
+        [botao]="false"
+        (clicouIcone2)="abrirDialogMeta(
         'valor-maximo',
         'Alterar valor maximo',
-        30
+        contadorAtual.valorMaximo
       )"
-    ></app-item-configuracao>
+      />
 
-    <hr>
+      <hr>
 
-    <app-item-configuracao
-      icone1="flag"
-      descricao="Meta"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="false"
-      (clicouIcone2)="abrirDialogMeta(
+      <app-item-configuracao
+        icone1="flag"
+        descricao="Meta"
+        icone2="arrow_forward_ios"
+        [valor]="contadorAtual.meta"
+        [botao]="false"
+        (clicouIcone2)="abrirDialogMeta(
         'meta',
         'Alterar Meta',
-        30
+        contadorAtual.meta
       )"
-    ></app-item-configuracao>
-  </div>
+      />
+    </div>
 
-  <h3 class="titulo">Operações</h3>
-  <div class="bloco">
-    <app-item-configuracao
-      icone1="add"
-      descricao="Incremento padrão"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="false"
-      (clicouIcone2)="abrirDialogMeta(
+    <h3 class="titulo">Operações</h3>
+    <div class="bloco">
+      <app-item-configuracao
+        icone1="add"
+        descricao="Incremento padrão"
+        icone2="arrow_forward_ios"
+        [valor]="'+' + contadorAtual.incremento"
+        [botao]="false"
+        (clicouIcone2)="abrirDialogMeta(
         'incremento',
         'Alterar Incremento',
-        30
+        contadorAtual.incremento
       )"
-    ></app-item-configuracao>
+      />
 
-    <hr>
+      <hr>
 
-    <app-item-configuracao
-      icone1="remove"
-      descricao="Incremento padrão"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="false"
-      (clicouIcone2)="abrirDialogMeta(
-        'incremento',
+      <app-item-configuracao
+        icone1="remove"
+        descricao="Incremento padrão"
+        icone2="arrow_forward_ios"
+        [valor]="'-' + contadorAtual.decremento"
+        [botao]="false"
+        (clicouIcone2)="abrirDialogMeta(
+        'decremento',
         'Alterar Incremento',
-        30
+        contadorAtual.decremento
       )"
-    ></app-item-configuracao>
+      />
 
-    <hr>
+      <hr>
 
-    <app-item-configuracao
-      icone1="architecture"
-      descricao="Incremento padrão"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="true"
-    ></app-item-configuracao>
-  </div>
+      <app-item-configuracao
+        icone1="architecture"
+        descricao="Incremento padrão"
+        icone2="arrow_forward_ios"
+        valor="+1"
+        [botao]="true"
+      />
+    </div>
 
-  <h3 class="titulo">Botões e aparência</h3>
-  <div class="bloco">
-    <app-item-configuracao
-      icone1="rotate_left"
-      descricao="Incremento padrão"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="true"
-    ></app-item-configuracao>
+    <h3 class="titulo">Botões e aparência</h3>
+    <div class="bloco">
+      <app-item-configuracao
+        icone1="rotate_left"
+        descricao="Incremento padrão"
+        icone2="arrow_forward_ios"
+        valor="+1"
+        [botao]="true"
+      />
 
-    <hr>
+      <hr>
 
-    <app-item-configuracao
-      icone1="edit"
-      descricao="Incremento padrão"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="true"
-    ></app-item-configuracao>
+      <app-item-configuracao
+        icone1="edit"
+        descricao="Incremento padrão"
+        icone2="arrow_forward_ios"
+        valor="+1"
+        [botao]="true"
+      />
 
-    <hr>
+      <hr>
 
-    <app-item-configuracao
-      icone1="info"
-      descricao="Incremento padrão"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="true"
-    ></app-item-configuracao>
-  </div>
+      <app-item-configuracao
+        icone1="info"
+        descricao="Incremento padrão"
+        icone2="arrow_forward_ios"
+        valor="+1"
+        [botao]="true"
+      />
+    </div>
 
-  <h3 class="titulo">Comportamento</h3>
-  <div class="bloco">
-    <app-item-configuracao
-      icone1="warning"
-      descricao="Incremento padrão"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="true"
-    ></app-item-configuracao>
+    <h3 class="titulo">Comportamento</h3>
+    <div class="bloco">
+      <app-item-configuracao
+        icone1="warning"
+        descricao="Incremento padrão"
+        icone2="arrow_forward_ios"
+        valor="+1"
+        [botao]="true"
+      />
 
-    <hr>
+      <hr>
 
-    <app-item-configuracao
-      icone1="vibration"
-      descricao="Incremento padrão"
-      valor="+1"
-      icone2="arrow_forward_ios"
-      [botao]="true"
-    ></app-item-configuracao>
+      <app-item-configuracao
+        icone1="vibration"
+        descricao="Incremento padrão"
+        icone2="arrow_forward_ios"
+        valor="+1"
+        [botao]="true"
+      />
 
-  </div>
+    </div>
 
-  <div class="deletar">
-    <p>Deletar contador</p>
-  </div>
+    <div class="deletar">
+      <p>Deletar contador</p>
+    </div>
+
+  } @else {
+    <p>Carregando...</p>
+  }
 </div>
