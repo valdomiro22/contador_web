@@ -55,13 +55,31 @@ export class ContadorPage implements OnInit {
     });
   }
 
+  verificarSeExiste(valor?: number): boolean {
+    if (valor != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   incrementar() {
     const contadorAtual = this.contador();
 
     if (!contadorAtual) return;
 
     this.contadorService.incrementarContador(contadorAtual.id).subscribe({
-      next: () => this.buscarContador(contadorAtual.id),
+      next: () => {
+        this.buscarContador(contadorAtual.id);
+
+        // if (contadorAtual.meta != null && contadorAtual.valorAtual === contadorAtual.meta) {
+        //   alert('meta atingida');
+        // }
+
+        if (contadorAtual.valorMaximo != null && contadorAtual.valorAtual >= contadorAtual.valorMaximo) {
+          return;
+        }
+      },
       error: (erro) => console.error('Erro ao incrementar contador:', erro),
     });
   }
@@ -70,6 +88,10 @@ export class ContadorPage implements OnInit {
     const contadorAtual = this.contador();
 
     if (!contadorAtual) return;
+
+    if (contadorAtual.valorMinimo != null && contadorAtual.valorAtual <= contadorAtual.valorMinimo) {
+      return;
+    }
 
     this.contadorService.decrementarContador(contadorAtual.id).subscribe({
       next: () => this.buscarContador(contadorAtual.id),

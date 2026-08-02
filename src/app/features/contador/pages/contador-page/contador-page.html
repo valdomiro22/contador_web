@@ -6,18 +6,30 @@
       @if (contadorAtual.mostrarLimites) {
         <div class="limites">
           <app-limite
-            [nome]="'Minimo'"
+            nome="Mínimo"
             [valor]="contadorAtual.valorMinimo ?? 'Indefinido'"
+            [comBackground]="
+              contadorAtual.valorMinimo !== null &&
+              contadorAtual.valorAtual <= contadorAtual.valorMinimo
+            "
           />
           
           <app-limite
             [nome]="'Meta'"
             [valor]="contadorAtual.meta ?? 'Indefinido'"
+            [comBackground]="
+              contadorAtual.meta !== null &&
+              contadorAtual.valorAtual >= contadorAtual.meta
+            "
           />
 
           <app-limite
             [nome]="'Maximo'"
             [valor]="contadorAtual.valorMaximo ?? 'Indefinido'"
+            [comBackground]="
+              contadorAtual.valorMaximo !== null &&
+              contadorAtual.valorAtual >= contadorAtual.valorMaximo
+            "
           />
         </div>
       }
