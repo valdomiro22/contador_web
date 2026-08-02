@@ -97,7 +97,7 @@
       />
 
       <hr>
-      
+
       <app-item-configuracao
         icone1="remove"
         descricao="Incremento padrão"
@@ -112,7 +112,7 @@
       />
 
       <hr>
-      
+
       <app-item-configuracao
         icone1="architecture"
         descricao="Operação principal"
@@ -123,7 +123,7 @@
         (onChangedSwitch)="atualizarOperacaoPrincipal($event)"
       />
     </div>
-    
+
     <!-- Botões e aparência -->
     <h3 class="titulo">Botões e aparência</h3>
     <div class="bloco">
@@ -131,8 +131,8 @@
         icone1="architecture"
         descricao="Mostrar botão reset"
         icone2="arrow_forward_ios"
-        [valor]="contadorAtual.mostrarBotaoReset 
-          ? 'Exibir o botão reset na tela do contador' 
+        [valor]="contadorAtual.mostrarBotaoReset
+          ? 'Exibir o botão reset na tela do contador'
           : 'Ocultar o botão reset na tela do contador'"
         [botao]="true"
         [switchAtivo]="contadorAtual.mostrarBotaoReset"
@@ -145,8 +145,8 @@
         icone1="architecture"
         descricao="Mostrar botão editar"
         icone2="arrow_forward_ios"
-        [valor]="contadorAtual.mostrarBotaoEditar 
-          ? 'Exibir o botão editar na tela do contador' 
+        [valor]="contadorAtual.mostrarBotaoEditar
+          ? 'Exibir o botão editar na tela do contador'
           : 'Ocultar o botão editar na tela do contador'"
         [botao]="true"
         [switchAtivo]="contadorAtual.mostrarBotaoEditar"
@@ -159,8 +159,8 @@
         icone1="architecture"
         descricao="Mostrar limites"
         icone2="arrow_forward_ios"
-        [valor]="contadorAtual.mostrarLimites 
-          ? 'Exibir MAXIMO, MINIMO E META na tela do contador' 
+        [valor]="contadorAtual.mostrarLimites
+          ? 'Exibir MAXIMO, MINIMO E META na tela do contador'
           : 'Ocultar MAXIMO, MINIMO E META na tela do contador'"
         [botao]="true"
         [switchAtivo]="contadorAtual.mostrarLimites"
@@ -175,8 +175,8 @@
         icone1="architecture"
         descricao="Confirmar antes de resetar"
         icone2="arrow_forward_ios"
-        [valor]="contadorAtual.confirmarAntesResetar 
-          ? 'Exibir confirmação antes de resetar o contador' 
+        [valor]="contadorAtual.confirmarAntesResetar
+          ? 'Exibir confirmação antes de resetar o contador'
           : 'Não exibir confirmação antes de resetar o contador'"
         [botao]="true"
         [switchAtivo]="contadorAtual.confirmarAntesResetar"
@@ -189,8 +189,8 @@
         icone1="architecture"
         descricao="Efeito ao clicar"
         icone2="arrow_forward_ios"
-        [valor]="contadorAtual.efeitoVisualAoClicar 
-          ? 'Exibir efeito visual ao incrementar ou decrementar o contador' 
+        [valor]="contadorAtual.efeitoVisualAoClicar
+          ? 'Exibir efeito visual ao incrementar ou decrementar o contador'
           : 'Não exibir efeito visual ao incrementar ou decrementar o contador'"
         [botao]="true"
         [switchAtivo]="contadorAtual.efeitoVisualAoClicar"
@@ -199,10 +199,10 @@
 
     </div>
 
-    <div 
-        class="deletar"
-        (click)="deletar()"
-      >
+    <div
+      class="deletar"
+      (click)="deletar()"
+    >
       <p>Deletar contador</p>
     </div>
 
