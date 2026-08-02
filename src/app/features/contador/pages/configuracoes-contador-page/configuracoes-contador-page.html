@@ -1,6 +1,7 @@
 <div id="container">
   @if (contador(); as contadorAtual) {
 
+    <!-- Valores e limites -->
     <h3 class="titulo">Valores e limites</h3>
     <div class="bloco">
 
@@ -41,10 +42,10 @@
         [valor]="contadorAtual.valorMinimo"
         [botao]="false"
         (clicouIcone2)="abrirDialogMeta(
-        'valor-minimo',
-        'Alterar valor mínimo',
-        contadorAtual.valorMinimo
-      )"
+          'valor-minimo',
+          'Alterar valor mínimo',
+          contadorAtual.valorMinimo ?? -1
+        )"
       />
 
       <hr>
@@ -57,10 +58,10 @@
         [valor]="contadorAtual.valorMaximo"
         [botao]="false"
         (clicouIcone2)="abrirDialogMeta(
-        'valor-maximo',
-        'Alterar valor maximo',
-        contadorAtual.valorMaximo
-      )"
+          'valor-maximo',
+          'Alterar valor maximo',
+          contadorAtual.valorMaximo ?? -1
+        )"
       />
 
       <hr>
@@ -72,13 +73,14 @@
         [valor]="contadorAtual.meta"
         [botao]="false"
         (clicouIcone2)="abrirDialogMeta(
-        'meta',
-        'Alterar Meta',
-        contadorAtual.meta
-      )"
+          'meta',
+          'Alterar Meta',
+          contadorAtual.meta ?? -1
+        )"
       />
     </div>
 
+    <!-- Operações -->
     <h3 class="titulo">Operações</h3>
     <div class="bloco">
       <app-item-configuracao
@@ -88,14 +90,14 @@
         [valor]="'+' + contadorAtual.incremento"
         [botao]="false"
         (clicouIcone2)="abrirDialogMeta(
-        'incremento',
-        'Alterar Incremento',
-        contadorAtual.incremento
-      )"
+          'incremento',
+          'Alterar Incremento',
+          contadorAtual.incremento
+        )"
       />
 
       <hr>
-
+      
       <app-item-configuracao
         icone1="remove"
         descricao="Incremento padrão"
@@ -103,72 +105,96 @@
         [valor]="'-' + contadorAtual.decremento"
         [botao]="false"
         (clicouIcone2)="abrirDialogMeta(
-        'decremento',
-        'Alterar Incremento',
-        contadorAtual.decremento
-      )"
+          'decremento',
+          'Alterar Incremento',
+          contadorAtual.decremento
+        )"
+      />
+
+      <hr>
+      
+      <app-item-configuracao
+        icone1="architecture"
+        descricao="Operação principal"
+        icone2="arrow_forward_ios"
+        [valor]="contadorAtual.subtracaoComoPrincipal ? 'SUBTRAÇÃO' : 'ADIÇÃO'"
+        [botao]="true"
+        [switchAtivo]="contadorAtual.subtracaoComoPrincipal"
+        (onChangedSwitch)="atualizarOperacaoPrincipal($event)"
+      />
+    </div>
+    
+    <!-- Botões e aparência -->
+    <h3 class="titulo">Botões e aparência</h3>
+    <div class="bloco">
+      <app-item-configuracao
+        icone1="architecture"
+        descricao="Mostrar botão reset"
+        icone2="arrow_forward_ios"
+        [valor]="contadorAtual.mostrarBotaoReset 
+          ? 'Exibir o botão reset na tela do contador' 
+          : 'Ocultar o botão reset na tela do contador'"
+        [botao]="true"
+        [switchAtivo]="contadorAtual.mostrarBotaoReset"
+        (onChangedSwitch)="mostrarBotaoReset($event)"
       />
 
       <hr>
 
       <app-item-configuracao
         icone1="architecture"
-        descricao="Incremento padrão"
+        descricao="Mostrar botão editar"
         icone2="arrow_forward_ios"
-        valor="+1"
+        [valor]="contadorAtual.mostrarBotaoEditar 
+          ? 'Exibir o botão editar na tela do contador' 
+          : 'Ocultar o botão editar na tela do contador'"
         [botao]="true"
-      />
-    </div>
-
-    <h3 class="titulo">Botões e aparência</h3>
-    <div class="bloco">
-      <app-item-configuracao
-        icone1="rotate_left"
-        descricao="Incremento padrão"
-        icone2="arrow_forward_ios"
-        valor="+1"
-        [botao]="true"
+        [switchAtivo]="contadorAtual.mostrarBotaoEditar"
+        (onChangedSwitch)="mostrarBotaoEditar($event)"
       />
 
       <hr>
 
       <app-item-configuracao
-        icone1="edit"
-        descricao="Incremento padrão"
+        icone1="architecture"
+        descricao="Mostrar limites"
         icone2="arrow_forward_ios"
-        valor="+1"
+        [valor]="contadorAtual.mostrarLimites 
+          ? 'Exibir MAXIMO, MINIMO E META na tela do contador' 
+          : 'Ocultar MAXIMO, MINIMO E META na tela do contador'"
         [botao]="true"
-      />
-
-      <hr>
-
-      <app-item-configuracao
-        icone1="info"
-        descricao="Incremento padrão"
-        icone2="arrow_forward_ios"
-        valor="+1"
-        [botao]="true"
+        [switchAtivo]="contadorAtual.mostrarLimites"
+        (onChangedSwitch)="mostrarBotaoLimites($event)"
       />
     </div>
 
+    <!-- Comportamento -->
     <h3 class="titulo">Comportamento</h3>
     <div class="bloco">
       <app-item-configuracao
-        icone1="warning"
-        descricao="Incremento padrão"
+        icone1="architecture"
+        descricao="Confirmar antes de resetar"
         icone2="arrow_forward_ios"
-        valor="+1"
+        [valor]="contadorAtual.confirmarAntesResetar 
+          ? 'Exibir confirmação antes de resetar o contador' 
+          : 'Não exibir confirmação antes de resetar o contador'"
         [botao]="true"
+        [switchAtivo]="contadorAtual.confirmarAntesResetar"
+        (onChangedSwitch)="confirmarAntesResetar($event)"
       />
 
       <hr>
 
       <app-item-configuracao
-        icone1="vibration"
-        descricao="Incremento padrão"
+        icone1="architecture"
+        descricao="Efeito ao clicar"
         icone2="arrow_forward_ios"
-        valor="+1"
+        [valor]="contadorAtual.efeitoVisualAoClicar 
+          ? 'Exibir efeito visual ao incrementar ou decrementar o contador' 
+          : 'Não exibir efeito visual ao incrementar ou decrementar o contador'"
         [botao]="true"
+        [switchAtivo]="contadorAtual.efeitoVisualAoClicar"
+        (onChangedSwitch)="efeitoAoClicar($event)"
       />
 
     </div>

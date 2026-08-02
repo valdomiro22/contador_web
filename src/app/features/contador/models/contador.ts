@@ -4,8 +4,19 @@ export interface Contador {
   valorAtual: number;
   incremento: number;
   decremento: number;
-  valorInicial: number;
-  valorMinimo: number;
-  valorMaximo: number;
-  meta: number;
+
+  valorInicial: number | null;
+  valorMinimo: number | null;
+  valorMaximo: number | null;
+  meta: number | null;
+
+  mostrarBotaoReset: boolean;
+  mostrarBotaoEditar: boolean;
+  subtracaoComoPrincipal: boolean;
+  mostrarLimites: boolean;
+  confirmarAntesResetar: boolean;
+  efeitoVisualAoClicar: boolean;
+
+  criadoEm: string;
+  editadoEm: string | null;
 }

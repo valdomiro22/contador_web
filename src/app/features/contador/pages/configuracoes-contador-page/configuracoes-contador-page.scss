@@ -1,6 +1,6 @@
 #container {
   margin: auto;
-  width: 500px;
+  width: 800px;
   padding-bottom: 20px;
 }
 
@@ -13,6 +13,10 @@
 .bloco {
   border: var(--color-bright-teal) solid 1px;
   border-radius: 12px;
+}
+
+.negrito {
+  font-weight: bold;
 }
 
 .deletar {

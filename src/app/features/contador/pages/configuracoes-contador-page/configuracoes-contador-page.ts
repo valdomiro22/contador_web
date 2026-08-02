@@ -1,10 +1,10 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ItemConfiguracao } from '../../components/item-configuracao/item-configuracao';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { InserirValorDialog } from '../../components/inserir-valor-dialog/inserir-valor-dialog';
+import { ItemConfiguracao } from '../../components/item-configuracao/item-configuracao';
 import { ContadorService } from '../../contador.service';
 import { Contador } from '../../models/contador';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-configuracoes-contador-page',
@@ -204,6 +204,114 @@ export class ConfiguracoesContadorPage implements OnInit {
       },
       error: (erro) => {
         console.error('Erro ao atualizar decremento:', erro);
+      },
+    });
+  }
+
+  atualizarOperacaoPrincipal(operacao: boolean): void {
+    const id = this.contador()?.id;
+
+    if (!id) return;
+
+    this.contadorService.atualizacaoParcial(id, { subtracaoComoPrincipal: operacao }).subscribe({
+      next: () => {
+        this.contador.update((contador) =>
+          contador ? { ...contador, subtracaoComoPrincipal: operacao } : null,
+        );
+        console.log('Atualizado: operação principal');
+      },
+      error: (erro) => {
+        console.error('Erro ao atualizar operação principal:', erro);
+      },
+    });
+  }
+
+  mostrarBotaoReset(mostrar: boolean): void {
+    const id = this.contador()?.id;
+
+    if (!id) return;
+
+    this.contadorService.atualizacaoParcial(id, { mostrarBotaoReset: mostrar }).subscribe({
+      next: () => {
+        this.contador.update((contador) =>
+          contador ? { ...contador, mostrarBotaoReset: mostrar } : null,
+        );
+        console.log('Atualizado: mostrar botão reset');
+      },
+      error: (erro) => {
+        console.error('Erro ao atualizar mostrar botão reset:', erro);
+      },
+    });
+  }
+
+  mostrarBotaoEditar(mostrar: boolean): void {
+    const id = this.contador()?.id;
+
+    if (!id) return;
+
+    this.contadorService.atualizacaoParcial(id, { mostrarBotaoEditar: mostrar }).subscribe({
+      next: () => {
+        this.contador.update((contador) =>
+          contador ? { ...contador, mostrarBotaoEditar: mostrar } : null,
+        );
+        console.log('Atualizado: mostrar botão editar');
+      },
+      error: (erro) => {
+        console.error('Erro ao atualizar mostrar botão editar:', erro);
+      },
+    });
+  }
+
+  mostrarBotaoLimites(mostrar: boolean): void {
+    const id = this.contador()?.id;
+
+    if (!id) return;
+
+    this.contadorService.atualizacaoParcial(id, { mostrarLimites: mostrar }).subscribe({
+      next: () => {
+        this.contador.update((contador) =>
+          contador ? { ...contador, mostrarLimites: mostrar } : null,
+        );
+        console.log('Atualizado: mostrar botão limites');
+      },
+      error: (erro) => {
+        console.error('Erro ao atualizar mostrar botão limites:', erro);
+      },
+    });
+  }
+
+  confirmarAntesResetar(confirmar: boolean): void {
+    const id = this.contador()?.id;
+
+    if (!id) return;
+
+    this.contadorService.atualizacaoParcial(id, { confirmarAntesResetar: confirmar }).subscribe({
+      next: () => {
+        this.contador.update((contador) =>
+          contador ? { ...contador, confirmarAntesResetar: confirmar } : null,
+        );
+        console.log('Atualizado: confirmar antes de resetar');
+      },
+      error: (erro) => {
+        console.error('Erro ao atualizar confirmar antes de resetar:', erro);
+      },
+    });
+  }
+
+  efeitoAoClicar(efeito: boolean): void {
+    const id = this.contador()?.id;
+
+    if (!id) return;
+
+    this.contadorService.atualizacaoParcial(id, { efeitoVisualAoClicar: efeito }).subscribe({
+      next: () => {
+        this.contador.update((contador) =>
+          contador ? { ...contador, efeitoVisualAoClicar: efeito } : null,
+        );
+        console.log('Atualizado: mostrar efeito ao clicar');
+      },
+      error: (erro) => {
+        console.error('Erro ao atualizar mostrar efeito ao clicar:', erro);
       },
     });
   }

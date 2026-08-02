@@ -10,6 +10,8 @@
       <p><mat-slide-toggle
         class="cor-verde"
         labelPosition="before"
+        [checked]="switchAtivo()"
+        (change)="aoAlterarSwitch($event)"
         hideIcon
       ></mat-slide-toggle></p>
     } @else {
