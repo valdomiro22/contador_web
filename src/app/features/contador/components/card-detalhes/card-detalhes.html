@@ -1,5 +1,11 @@
-<div id="conteudo">
-  <mat-icon id="icone">flag</mat-icon>
-  <p id="nome">Meta</p>
-  <p id="valor">30</p>
+<div class="card-detalhes">
+  <div class="header">
+    <div class="icone-wrapper">
+      <mat-icon class="icone">{{ icone() }}</mat-icon>
+    </div>
+    <span class="nome">{{ nome() }}</span>
+  </div>
+  <div class="body">
+    <h3 class="valor">{{ valor() }}</h3>
+  </div>
 </div>

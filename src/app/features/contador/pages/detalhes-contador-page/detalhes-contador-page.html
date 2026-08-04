@@ -1,49 +1,52 @@
-<div class="conteudo">
-  <div class="card-principal">
-    <p id="titulo">nome</p>
-    <p id="valor">23</p>
-  </div>
-  
-  <p class="titulo">Configurações e metas</p>
-  <div class="cards">
-    <app-card-detalhes
-      icone="flag"
-      nome="Meta"
-      valor="30"
-    ></app-card-detalhes>
-  
-    <app-card-detalhes
-      icone="flag"
-      nome="Meta"
-      valor="30"
-    ></app-card-detalhes>
-  
-    <app-card-detalhes
-      icone="flag"
-      nome="Meta"
-      valor="30"
-    ></app-card-detalhes>
-  
-    <app-card-detalhes
-      icone="flag"
-      nome="Meta"
-      valor="30"
-    ></app-card-detalhes>
-  </div>
-  
-  <div class="incremento-decremento">
-    <div class="incremento item">
-      <mat-icon>add</mat-icon>
-      <p id="descricao">Incremento padrão</p>
-      <p id="valor">+1</p>
+@if (contador(); as contadorAtual) {
+  <div class="conteudo">
+    <!-- Card Principal -->
+    <div class="card-principal">
+      <span class="tag">Objeto Ativo</span>
+      <h1 class="titulo-principal">{{ contadorAtual.nome }}</h1>
+      <div class="metrica-principal">
+        <span class="label">Valor Atual</span>
+        <span class="valor-principal">{{ contadorAtual.valorAtual }}</span>
+      </div>
     </div>
-  
-    <hr>
-  
-    <div class="decremento item">
-      <mat-icon>remove</mat-icon>
-      <p id="descricao">Decremento padrão</p>
-      <p id="valor">+1</p>
-    </div>
+
+    <!-- Seção de Metas -->
+    <section class="secao-metas">
+      <h2 class="subtitulo">Configurações e Metas</h2>
+      <div class="cards-grid">
+        <app-card-detalhes icone="flag" nome="Meta" [valor]="contadorAtual.meta ?? 'Indefinido'"></app-card-detalhes>
+        <app-card-detalhes icone="vertical_align_bottom" nome="Mínimo" [valor]="contadorAtual.valorMinimo ?? 'Indefinido'"></app-card-detalhes>
+        <app-card-detalhes icone="vertical_align_top" nome="Maximo" [valor]="contadorAtual.valorMaximo ?? 'Indefinido'"></app-card-detalhes>
+        <app-card-detalhes icone="radio_button_unchecked" nome="Inicial" [valor]="contadorAtual.valorInicial ?? 'Indefinido'"></app-card-detalhes>
+      </div>
+    </section>
+
+    <!-- Controles de Incremento/Decremento -->
+    <section class="secao-acoes">
+      <h2 class="subtitulo">Ações Padrão</h2>
+      <div class="painel-acoes">
+        <div class="item-acao">
+          <div class="info">
+            <div class="badge-icon add">
+              <mat-icon>add</mat-icon>
+            </div>
+            <span class="descricao">Incremento padrão</span>
+          </div>
+          <span class="valor positivo">+1</span>
+        </div>
+
+        <div class="divisor"></div>
+
+        <div class="item-acao">
+          <div class="info">
+            <div class="badge-icon remove">
+              <mat-icon>remove</mat-icon>
+            </div>
+            <span class="descricao">Decremento padrão</span>
+          </div>
+          <span class="valor negativo">-1</span>
+        </div>
+      </div>
+    </section>
   </div>
-</div>
+}

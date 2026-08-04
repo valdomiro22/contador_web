@@ -8,7 +8,7 @@ import { MatIcon } from "@angular/material/icon";
   styleUrl: './card-detalhes.scss',
 })
 export class CardDetalhes {
-  readonly icone = input.required<string>();
-  readonly nome = input.required<string>();
-  readonly valor = input.required<string>();
+  readonly icone = input.required<string | number>();
+  readonly nome = input.required<string | number>();
+  readonly valor = input.required<string | number>();
 }
