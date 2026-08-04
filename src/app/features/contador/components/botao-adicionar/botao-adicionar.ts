@@ -10,10 +10,5 @@ import { MatIconModule } from '@angular/material/icon';
 export class BotaoAdicionar {
   readonly clicou = output();
   readonly isPrincipal = input.required<boolean>();
-
-  constructor() {
-    effect(() => {
-      console.log('isPrincipal:', this.isPrincipal());
-    });
-  }
+  readonly efeitoAoClicar = input.required<boolean>();
 }

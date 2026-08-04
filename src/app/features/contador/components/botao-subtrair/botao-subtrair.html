@@ -1,7 +1,8 @@
-<div 
-  class="botao" 
+<div
+  class="botao"
   (click)="clicou.emit()"
   [class.principal]="isPrincipal()"
+  [class.efeito]="efeitoAoClicar()"
 >
   <mat-icon class="icone">remove</mat-icon>
 </div>

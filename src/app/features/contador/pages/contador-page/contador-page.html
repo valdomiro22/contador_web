@@ -35,11 +35,11 @@
       }
 
       @if (contadorAtual.subtracaoComoPrincipal) {
-        <app-botao-subtrair (clicou)="decrementar()" [isPrincipal]="true" />
-        <app-botao-adicionar (clicou)="incrementar()" [isPrincipal]="false" />
+        <app-botao-subtrair (clicou)="decrementar()" [isPrincipal]="true" [efeitoAoClicar]="contadorAtual.efeitoVisualAoClicar"/>
+        <app-botao-adicionar (clicou)="incrementar()" [isPrincipal]="false" [efeitoAoClicar]="contadorAtual.efeitoVisualAoClicar"/>
       } @else {
-        <app-botao-adicionar (clicou)="incrementar()" [isPrincipal]="true" />
-        <app-botao-subtrair (clicou)="decrementar()" [isPrincipal]="false" />
+        <app-botao-adicionar (clicou)="incrementar()" [isPrincipal]="true" [efeitoAoClicar]="contadorAtual.efeitoVisualAoClicar"/>
+        <app-botao-subtrair (clicou)="decrementar()" [isPrincipal]="false" [efeitoAoClicar]="contadorAtual.efeitoVisualAoClicar"/>
       }
 
       <div class="acoes">

@@ -11,6 +11,12 @@
   border-radius: 18px;
 }
 
+.botao.efeito:active {
+  transform: scale(0.98);
+  background-color: rgb(51, 102, 214);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 50%);
+}
+
 .botao.principal {
   width: 150px;
   height: 150px;
