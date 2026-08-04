@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, effect, input, output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -8,5 +8,12 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './botao-adicionar.scss',
 })
 export class BotaoAdicionar {
-  readonly clicou = output()
+  readonly clicou = output();
+  readonly isPrincipal = input.required<boolean>();
+
+  constructor() {
+    effect(() => {
+      console.log('isPrincipal:', this.isPrincipal());
+    });
+  }
 }

@@ -117,7 +117,7 @@
         icone1="menu"
         descricao="Operação principal"
         icone2="arrow_forward_ios"
-        [valor]="contadorAtual.subtracaoComoPrincipal ? 'SUBTRAÇÃO' : 'ADIÇÃO'"
+        [valor]="contadorAtual.subtracaoComoPrincipal ? 'ADIÇÃO' : 'SUBTRAÇÃO'"
         [botao]="true"
         [switchAtivo]="contadorAtual.subtracaoComoPrincipal"
         (onChangedSwitch)="atualizarOperacaoPrincipal($event)"

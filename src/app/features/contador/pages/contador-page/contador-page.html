@@ -34,10 +34,13 @@
         </div>
       }
 
-
-      <app-botao-adicionar (clicou)="incrementar()" />
-
-      <app-botao-subtrair (clicou)="decrementar()" />
+      @if (contadorAtual.subtracaoComoPrincipal) {
+        <app-botao-subtrair (clicou)="decrementar()" [isPrincipal]="true" />
+        <app-botao-adicionar (clicou)="incrementar()" [isPrincipal]="false"/>
+      } @else {
+        <app-botao-adicionar (clicou)="incrementar()" [isPrincipal]="true"/>
+        <app-botao-subtrair (clicou)="decrementar()" [isPrincipal]="false"/>
+      }
 
       <div class="acoes">
         <mat-icon

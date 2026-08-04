@@ -1,3 +1,7 @@
-<div class="botao" (click)="clicou.emit()">
-    <mat-icon class="icone">add</mat-icon>
+<div
+  class="botao"
+  (click)="clicou.emit()"
+  [class.principal]="isPrincipal()"
+>
+  <mat-icon class="icone">add</mat-icon>
 </div>
