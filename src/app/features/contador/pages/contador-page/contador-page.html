@@ -13,7 +13,7 @@
               contadorAtual.valorAtual <= contadorAtual.valorMinimo
             "
           />
-          
+
           <app-limite
             [nome]="'Meta'"
             [valor]="contadorAtual.meta ?? 'Indefinido'"
@@ -36,24 +36,29 @@
 
       @if (contadorAtual.subtracaoComoPrincipal) {
         <app-botao-subtrair (clicou)="decrementar()" [isPrincipal]="true" />
-        <app-botao-adicionar (clicou)="incrementar()" [isPrincipal]="false"/>
+        <app-botao-adicionar (clicou)="incrementar()" [isPrincipal]="false" />
       } @else {
-        <app-botao-adicionar (clicou)="incrementar()" [isPrincipal]="true"/>
-        <app-botao-subtrair (clicou)="decrementar()" [isPrincipal]="false"/>
+        <app-botao-adicionar (clicou)="incrementar()" [isPrincipal]="true" />
+        <app-botao-subtrair (clicou)="decrementar()" [isPrincipal]="false" />
       }
 
       <div class="acoes">
-        <mat-icon
-          id="reset"
-          (click)="abrirAlerta()"
-        >refresh
-        </mat-icon>
+        <div class="acao-esquerda">
+          @if (contadorAtual.mostrarBotaoReset) {
+            <mat-icon id="reset" (click)="abrirAlerta()">refresh</mat-icon>
+          }
+        </div>
 
-        <mat-icon
-          id="editar"
-          [routerLink]="['/contador', contadorAtual.id, 'editar']"
-        >edit
-        </mat-icon>
+        <div class="acao-direita">
+          @if (contadorAtual.mostrarBotaoEditar) {
+            <mat-icon
+              id="editar"
+              [routerLink]="['/contador', contadorAtual.id, 'editar']"
+            >
+              edit
+            </mat-icon>
+          }
+        </div>
       </div>
     </div>
 
