@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Contador } from './models/contador';
 import { PostContadorRequest } from './models/PostContadorRequest ';
 import { PatchContadorRequest } from './models/PatchContadorRequest';
+import { Movimentacao } from '../movimentacao/models/movimentacao';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ import { PatchContadorRequest } from './models/PatchContadorRequest';
 export class ContadorService {
   private readonly apiUrl = 'http://localhost:8080/contador';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   buscarListaContadores(): Observable<Contador[]> {
     return this.http.get<Contador[]>(this.apiUrl);
@@ -43,5 +44,9 @@ export class ContadorService {
 
   deletarContador(id: string) {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  historico(id: string) {
+    return this.http.get<Movimentacao[]>(`${this.apiUrl}/${id}/movimentacoes`);
   }
 }

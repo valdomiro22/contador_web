@@ -1,1 +1,9 @@
-<p>historico-movimentacoes works!</p>
+<div class="container">
+  @for (mv of movimentacoes(); track mv.id) {
+    <app-item-movimentacao
+      [tipo]="mv.tipo"
+      [quantidade]="mv.quantidade"
+      [horario]="mv.criadoEm"
+    />
+  }
+</div>
